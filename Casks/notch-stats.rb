@@ -14,7 +14,6 @@ cask "notch-stats" do
   # The build is ad-hoc signed rather than notarized, so Gatekeeper would refuse
   # the first launch. Clear the quarantine flag Homebrew sets on download.
   postflight do
-    system_command "/usr/bin/touch", args: ["/tmp/ns_pf_ran"]
     system_command "/usr/bin/xattr",
                    args: ["-dr", "com.apple.quarantine", "#{appdir}/NotchStats.app"]
   end
